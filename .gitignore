@@ -35,4 +35,4 @@
 
 #exclude IDEs
 /.vscode/
-/.i
+/.idea/

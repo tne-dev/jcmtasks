@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   before_action :current_task
+  include Pagy::Backend
   def index
-    @tasks = current_user.tasks
+    @pagy, @tasks = pagy(current_user.tasks)
   end
 
   def new

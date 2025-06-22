@@ -1,7 +1,8 @@
 class TagsController < ApplicationController
   before_action :current_tag
+  include Pagy::Backend
   def index
-    @tags = current_user.tags
+    @pagy, @tags = pagy(current_user.tags)
   end
 
   def new

@@ -1,2 +1,27 @@
 <h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+
+<br>
+
+<% extend Pagy::Frontend %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-light">
+    <tr>
+      <th>Title</th>
+      <!--<th>Number of related tasks</th>-->
+      <th>Created at</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <!--<td><%# project.tasks.count %></td>-->
+        <td><%= l(project.created_at, format: :short) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render "shared/pagination" %>

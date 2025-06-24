@@ -33,6 +33,13 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-#exclude IDEs
+# Exclude IDEs
 /.vscode/
 /.idea/
+
+# Exclude Builds folder (except .keep)
+/app/assets/builds/*
+!/app/assets/builds/.keep
+
+# Exclude Node modules
+/node_modules

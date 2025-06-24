@@ -1,2 +1,35 @@
 <h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+
+<br>
+
+<% extend Pagy::Frontend %>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead class="table-light">
+    <tr>
+      <th>Title</th>
+      <!--<th>Project</th>-->
+      <!--<th>Tags</th>-->
+      <th>Created at</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to task.title, task_path(task) %></td>
+        <!--<td><%# task.project.name %></td>-->
+        <!--<td>
+          <%# task.tags.each do |tag| %>
+            <span class="badge bg-secondary"><%#= link_to tag.title, tag_path(tag) %></span>
+          <%# end %>
+        </td>-->
+        <td><%= task.created_at %></td>
+        <td><%= task.is_done %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= render "shared/pagination" %>

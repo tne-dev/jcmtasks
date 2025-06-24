@@ -72,9 +72,10 @@ gem "devise", "~> 4.9"
 
 # Add styling and its components
 gem "slim"
-gem 'sassc-rails', '~> 2.0'
 gem "bootstrap", "~> 5.3.3"
 
 # Add ui/ux components
 gem "simple_form"
 gem "pagy", "~> 9.3"
+
+gem "cssbundling-rails", "~> 1.4"

@@ -21,7 +21,9 @@
     <!--Login-->
     <div class="d-flex">
       <% if user_signed_in? %>
-        <span class="navbar-text me-2"><%= current_user.full_name %></span>
+        <span class="navbar-text me-2">
+          <%= link_to "#{current_user.full_name}", edit_user_registration_path, class: "nav-link" %>
+        </span>
         <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
       <% else %>
         <%= link_to "Log in", new_user_session_path, class: "btn btn-outline-primary me-2" %>

@@ -7,29 +7,36 @@ class TagsController < ApplicationController
   end
 
   def new
+    @tag = current_user.tags.new
   end
 
   def create
     @tag = current_user.tags.create(tag_params)
     if @tag.save
-      redirect_to tag_path(@tag), notice: "Tag created"
+      redirect_to tags_path, notice: "Tag created"
     else
       render :new, alert: "Unable to create tag"
     end
   end
 
   def show
+    current_tag
   end
 
   def edit
   end
 
   def update
-    if @tag.update(tag_params)
-      redirect_to tag_path(@tag), notice: "Tag updated"
+    if current_tag.update(tag_params)
+      redirect_to tag_path(current_tag), notice: "Tag updated"
     else
       render :edit, alert: "Unable to update tag"
     end
+  end
+
+  def destroy
+    current_tag.destroy
+    redirect_to tags_path, notice: "Tag deleted"
   end
 
   private

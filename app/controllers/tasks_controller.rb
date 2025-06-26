@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   end
 
   def new
+    @task = current_user.tasks.new
   end
 
   def create

@@ -1,2 +1,12 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="mb-0">New task</h1>
+  <%= link_to "Cancel", tasks_path, class: "btn btn-primary" %>
+</div>
+
+<%= simple_form_for @task do |task| %>
+  <%= task.input :title, label: blank?, placeholder: 'Task name...', error: 'Title is required.' %>
+  <%= task.input :description, label: blank?, placeholder: 'Enter the task description...' %>
+  <%# task.association :project, collection: Project.all %>
+  <%= task.input :file, label: blank? %>
+  <%= task.button :submit, class: 'btn btn-primary' %>
+<% end %>

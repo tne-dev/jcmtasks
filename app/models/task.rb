@@ -5,10 +5,18 @@ class Task < ApplicationRecord
   #-----associations-----
   belongs_to :user
   belongs_to :project, optional: true
+  delegate :title, to: :project, prefix: true, allow_nil: true
+
   has_many :tagged_tasks, dependent: :destroy
   has_many :tags, through: :tagged_tasks
 
   #-----validations-----
   validates :title, presence: true
   validates :is_done, inclusion: { in: [ true, false ] }
+
+=begin
+    def project_title
+      project&.title || "Not assigned to a project"
+    end
+=end
 end

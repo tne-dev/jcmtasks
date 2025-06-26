@@ -1,13 +1,16 @@
 class TasksController < ApplicationController
   before_action :current_task
+  before_action :user_collections
   include Pagy::Backend
 
   def index
-    @pagy, @tasks = pagy(current_user.tasks.order(created_at: :desc), items: 10)
+    @pagy, @tasks = pagy(current_user.tasks.includes(:project, :tags).order(created_at: :desc), items: 10)
   end
 
   def new
     @task = current_user.tasks.new
+    @projects.order(:position)
+    @tags
   end
 
   def create
@@ -39,7 +42,12 @@ class TasksController < ApplicationController
     @task = current_user.tasks.find_by(id: params[:id])
   end
 
+  def user_collections
+    @projects = current_user.projects
+    @tags = current_user.tags
+  end
+
   def task_params
-    params.require(:task).permit(:title, :description, :is_done)
+    params.require(:task).permit(:title, :description, :is_done, :project_id, tag_ids: [])
   end
 end

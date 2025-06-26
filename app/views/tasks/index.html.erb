@@ -5,28 +5,34 @@
 
 <% extend Pagy::Frontend %>
 <div class="table-responsive">
-  <table class="table table-striped table-hover">
+  <table class="table table-light table-striped table-hover">
     <thead class="table-light">
     <tr>
       <th>Title</th>
-      <!--<th>Project</th>-->
-      <!--<th>Tags</th>-->
+      <th>Project</th>
+      <th>Tags</th>
       <th>Created at</th>
       <th>Status</th>
       <th>Action</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= link_to task.title, task_path(task) %></td>
-        <!--<td><%# task.project.name %></td>-->
-        <!--<td>
-          <%# task.tags.each do |tag| %>
-            <span class="badge bg-secondary"><%#= link_to tag.title, tag_path(tag) %></span>
-          <%# end %>
-        </td>-->
-        <td><%= task.created_at %></td>
+        <td><%= link_to task.title, task_path(task), class: "nav-link" %></td>
+        <td>
+          <%= task.project_title || "Not assigned to a project" %>
+        </td>
+        <td>
+          <% if task.tags.any? %>
+            <% task.tags.each do |tag| %>
+              <span class="badge bg-primary"><%= tag.title %></span>
+            <% end %>
+          <% else %>
+            <span class="text-muted">No tags</span>
+          <% end %>
+        </td>
+        <td><%= l(task.created_at, format: :short) %></td>
         <td><%= task.is_done %></td>
         <td>
           <%= button_to "Delete", task_path(task), method: :delete, data: { confirm: "Delete this task?" }, class: "btn btn-danger btn-sm rounded-pill" %>

@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @projects = pagy(current_user.projects.order(created_at: :desc), items: 10)
+    @pagy, @projects = pagy(current_user.projects.order(:position), items: 10)
   end
 
   def new
@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.create(project_params)
     if @project.save
-      redirect_to @project, notice: "Project created"
+      redirect_to project_path(@project), notice: "Project created"
     else
       render :new, alert: "Unable to create project"
     end
@@ -21,6 +21,9 @@ class ProjectsController < ApplicationController
 
   def show
     current_project
+    if @tasks
+      current_project.tasks
+    end
   end
 
   def edit

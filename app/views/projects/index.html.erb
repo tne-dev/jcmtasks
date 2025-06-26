@@ -14,11 +14,10 @@
       <th>Action</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider">
     <% @projects.each do |project| %>
       <tr>
-        <td><%= project.title %></td>
-        <!--<td><%# project.tasks.count %></td>-->
+        <td><%= link_to project.title, project_path(project), class: "nav-link" %></td>
         <td><%= l(project.created_at, format: :short) %></td>
         <td>
           <%= button_to "Delete", project_path(project), method: :delete, data: { confirm: "Delete this project?" }, class: "btn btn-danger btn-sm rounded-pill" %>

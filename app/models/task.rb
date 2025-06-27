@@ -14,6 +14,9 @@ class Task < ApplicationRecord
   validates :title, presence: true
   validates :is_done, inclusion: { in: [ true, false ] }
 
+  #-----scopes-----
+  scope :per_project, ->(project) { where(project: project) }
+
 =begin
     def project_title
       project&.title || "Not assigned to a project"

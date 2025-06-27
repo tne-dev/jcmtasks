@@ -4,7 +4,12 @@ class TasksController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @tasks = pagy(current_user.tasks.includes(:project, :tags).order(created_at: :desc), items: 10)
+    tasks = current_user.tasks.includes(:project, :tags).order(created_at: :desc)
+    if params[:project_id].present?
+      project = @projects.find_by(id: params[:project_id])
+      tasks = tasks.per_project(project) if project
+    end
+    @pagy, @tasks = pagy(tasks, items: 10)
   end
 
   def new

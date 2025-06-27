@@ -35,7 +35,10 @@
         <td><%= l(task.created_at, format: :short) %></td>
         <td><%= task.is_done %></td>
         <td>
-          <%= button_to "Delete", task_path(task), method: :delete, data: { confirm: "Delete this task?" }, class: "btn btn-danger btn-sm rounded-pill" %>
+          <div class="btn-group" role="group">
+            <%= button_to "Edit", edit_task_path(task), method: :get, class: "btn btn-outline-primary btn-sm" %>
+            <%= button_to "Delete", task_path(task), method: :delete, data: { confirm: "Delete this task?" }, class: "btn btn-danger btn-sm" %>
+          </div>
         </td>
       </tr>
     <% end %>

@@ -1,16 +1,15 @@
-<div class="d-flex justify-content-between align-items-center mb-3">
-  <h1 class="mb-0"><%= current_user.first_name %>'s tasks</h1>
+<div class="d-flex justify-content-between align-items-baseline">
+  <h1><%= current_user.first_name %>'s tasks</h1>
+  <%= simple_form_for :task_filter, url: tasks_path, method: :get, html: { class: 'd-flex align-items-baseline mb-3' } do |f| %>
+    <%= f.input :project_id, collection: current_user.projects, prompt: 'All Projects', required: false, label: false, input_html: { class: 'form-select me-2 w-auto', name: 'project_id' } %>
+    <%= f.button :submit, 'Filter', class: 'btn btn-primary' %>
+  <% end %>
   <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
 </div>
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <%= simple_form_for :task_filter, url: tasks_path, method: :get, html: { class: 'mb-3' } do |f| %>
-      <%= f.input :project_id, collection: current_user.projects, prompt: 'All Projects', required: false, label: false, input_html: { class: 'form-select', name: 'project_id' } %>
-      <%= f.button :submit, 'Filter', class: 'btn btn-primary' %>
-    <% end %>
-</div>
 
 <% extend Pagy::Frontend %>
+
 <div class="table-responsive">
   <table class="table table-light table-striped table-hover">
     <thead class="table-light">
@@ -42,9 +41,9 @@
         <td><%= l(task.created_at, format: :short) %></td>
         <td><%= task.is_done %></td>
         <td>
-          <div class="btn-group" role="group">
-            <%= button_to "Edit", edit_task_path(task), method: :get, class: "btn btn-outline-primary btn-sm" %>
-            <%= button_to "Delete", task_path(task), method: :delete, data: { confirm: "Delete this task?" }, class: "btn btn-danger btn-sm" %>
+          <div class="d-flex justify-content-between gap-1">
+            <%= button_to "Edit", edit_task_path(task), method: :get, class: "btn btn-outline-primary btn-sm rounded-pill" %>
+            <%= button_to "Delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Delete this task?" }, class: "btn btn-danger btn-sm rounded-pill" %>
           </div>
         </td>
       </tr>
@@ -52,5 +51,5 @@
     </tbody>
   </table>
 </div>
-
+<br>
 <%= render "shared/pagination", pagy: @pagy %>

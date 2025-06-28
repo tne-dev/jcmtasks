@@ -48,6 +48,11 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @task.destroy!
+    redirect_to tasks_path, notice: "Task #{@task.title} deleted successfully"
+  end
+
   private
 
   def current_task

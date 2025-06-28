@@ -1,12 +1,8 @@
 <div class="d-flex justify-content-between align-items-center py-3">
   <h1>Task: <%= @task.title %></h1>
-  <div class="d-flex justify-content-end align-items-center gap-5">
-    <%= render 'tasks/toggle_completion_status_button', task: @task %>
-    <div class="btn-group gap-1">
-      <%= link_to "Edit Task", edit_task_path(@task), class: "btn btn-outline-primary" %>
-      <%= link_to "Return to Tasks", tasks_path, class: "btn btn-primary" %>
-      <%= link_to "Create Task", new_task_path, class: "btn btn-outline-primary" %>
-    </div>
+  <div class="btn-group gap-1">
+    <%= link_to "Create Task", new_task_path, class: "btn btn-outline-primary" %>
+    <%= link_to "Return to Tasks", tasks_path, class: "btn btn-primary" %>
   </div>
 </div>
 
@@ -44,6 +40,19 @@
     <% else %>
       <p class="card-text text-muted">No attachments</p>
     <% end %>
+    </div>
+    <div class="card-footer">
+      <div class="container-fluid d-flex w-100 row justify-content-center align-items-center">
+        <div class="d-flex col justify-content-center">
+        <%= link_to "Edit Task", edit_task_path(@task), class: "btn btn-outline-primary btn-sm rounded-pill" %>
+        </div>
+        <div class="d-flex col justify-content-center">
+          <%= render 'tasks/toggle_completion_status_button', task: @task %>
+        </div>
+        <div class="d-flex col justify-content-center">
+          <%= link_to "Delete task", task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Delete this task?" }, class: "btn btn-danger btn-sm rounded-pill" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

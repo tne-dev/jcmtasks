@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   before_action :current_task
   before_action :user_collections
-  include Pagy::Backend
 
   def index
     tasks = current_user.tasks.includes(:project, :tags).order(created_at: :desc)
@@ -9,7 +8,7 @@ class TasksController < ApplicationController
       project = @projects.find_by(id: params[:project_id])
       tasks = tasks.per_project(project) if project
     end
-    @pagy, @tasks = pagy(tasks, items: 10)
+    @pagy, @tasks = pagy(tasks)
   end
 
   def new

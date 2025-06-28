@@ -1,9 +1,8 @@
 class ProjectsController < ApplicationController
   before_action :current_project
-  include Pagy::Backend
 
   def index
-    @pagy, @projects = pagy(current_user.projects.order(:position), items: 10)
+    @pagy, @projects = pagy(current_user.projects.order(:position))
   end
 
   def new

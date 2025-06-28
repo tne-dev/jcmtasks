@@ -74,8 +74,10 @@ gem "devise", "~> 4.9"
 gem "slim"
 gem "bootstrap", "~> 5.3.3"
 
+gem "cssbundling-rails", "~> 1.4"
+
 # Add ui/ux components
 gem "simple_form"
 gem "pagy", "~> 9.3"
 
-gem "cssbundling-rails", "~> 1.4"
+

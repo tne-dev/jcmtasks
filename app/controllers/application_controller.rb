@@ -1,13 +1,12 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   # Setup controller before used
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, unless: :devise_controller?
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
-
-  # Use helpers
-  helper PagyHelper
 
 
   protected

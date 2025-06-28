@@ -19,8 +19,13 @@ class Task < ApplicationRecord
   scope :search_for_title, ->(searched_term) {
     where("LOWER(title) ILIKE ?", "%#{searched_term.to_s.downcase}%")
   }
+  scope :tasks_per_status, ->(is_done) { where(is_done: is_done) }
 
   def status?
     is_done ? "Complete" : "Incomplete"
+  end
+
+  def self.all_statuses(user)
+    Task.distinct.pluck(:is_done).map { |status| [ status ? "Completed" : "Incomplete", status ] }
   end
 end

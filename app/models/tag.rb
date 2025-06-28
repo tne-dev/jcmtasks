@@ -6,4 +6,9 @@ class Tag < ApplicationRecord
 
   #-----validations-----
   validates :title, presence: true
+
+  #-----scopes-----
+  scope :search_for_title, ->(searched_term) {
+    where("LOWER(title) ILIKE ?", "%#{searched_term.to_s.downcase}%")
+  }
 end

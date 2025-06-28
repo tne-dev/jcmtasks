@@ -10,6 +10,10 @@ class Project < ApplicationRecord
   validates :title, presence: true
   validates :position, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
+  #-----scopes-----
+  scope :search_for_title, ->(searched_term) {
+    where("LOWER(title) ILIKE ?", "%#{searched_term.to_s.downcase}%")
+  }
 
   private
 

@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :projects
   resources :tasks
   resources :tags
+
+  get 'search', to: 'search#index'
 end

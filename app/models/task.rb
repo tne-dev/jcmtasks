@@ -16,7 +16,9 @@ class Task < ApplicationRecord
 
   #-----scopes-----
   scope :per_project, ->(project) { where(project: project) }
-
+  scope :search_for_title, ->(searched_term) {
+    where("LOWER(title) ILIKE ?", "%#{searched_term.to_s.downcase}%")
+  }
 =begin
     def project_title
       project&.title || "Not assigned to a project"

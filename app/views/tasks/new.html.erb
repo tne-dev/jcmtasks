@@ -3,11 +3,4 @@
   <%= link_to "Cancel", tasks_path, class: "btn btn-primary" %>
 </div>
 
-<%= simple_form_for @task do |task| %>
-  <%= task.input :title, label: 'Name:', placeholder: 'Enter task name...', error: 'Title is required.' %>
-  <%= task.input :description, label: 'Description:', placeholder: 'Enter task description...' %>
-  <%= task.input :project_id, collection: @projects, prompt: '----- Optional: Assign task to one of your projects... -----', include_blank: true %>
-  <%= task.input :tag_ids, as: :select, collection: @tags, label: 'User tags', input_html: { multiple: true, class: 'form-control tag-select select2' } %>
-  <%= task.input :file, label: blank? %>
-  <%= task.button :submit, class: 'btn btn-primary' %>
-<% end %>
+<%= render "tasks/form" %>

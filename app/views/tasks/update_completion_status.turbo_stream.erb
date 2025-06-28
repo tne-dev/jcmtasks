@@ -1,0 +1,15 @@
+<%= turbo_stream.replace "flash_messages" do %>
+  <%= render "shared/flash" %>
+<% end %>
+
+<%= turbo_stream.replace dom_id(@task, :status) do %>
+  <span id="<%= dom_id(@task, :status) %>"><%= @task.status? %></span>
+<% end %>
+
+<%= turbo_stream.replace "task-#{@task.id}-toggle" do %>
+  <%= render "tasks/toggle_completion_status_button", task: @task %>
+<% end %>
+
+<%= turbo_stream.replace "task-#{@task.id}-toggle-span" do %>
+  <%= render "tasks/task_status_span", task: @task %>
+<% end %>

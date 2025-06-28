@@ -40,6 +40,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def update_completion_status
+    @task.toggle!(:is_done)
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to task_path(@task), notice: "Task set to toggled to #{@task.status?}." }
+    end
+  end
+
   private
 
   def current_task

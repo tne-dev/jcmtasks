@@ -1,0 +1,11 @@
+<div id="task-<%= task.id %>-toggle-span">
+  <% if task.is_done? %>
+    <div class="card-header bg-success-subtle">
+      <span id="<%= dom_id(task, :status) %>"><%= task.status? %></span>
+    </div>
+  <% else %>
+    <div class="card-header bg-danger-subtle">
+      <span id="<%= dom_id(task, :status) %>"><%= task.status? %></span>
+    </div>
+  <% end %>
+</div>

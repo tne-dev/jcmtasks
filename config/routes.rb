@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :projects
-  resources :tasks
+  resources :tasks do
+    member do
+      patch :update_completion_status
+    end
+  end
   resources :tags
 
   get "search", to: "search#index"

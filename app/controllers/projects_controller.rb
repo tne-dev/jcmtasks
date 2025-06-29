@@ -38,9 +38,8 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    if @project.destroy!
-      redirect_to projects_path, notice: "Project deleted"
-    end
+    @project.destroy!
+    redirect_to projects_path, notice: "Project #{@project.title} deleted"
   end
 
   private

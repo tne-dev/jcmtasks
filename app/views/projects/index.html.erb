@@ -20,7 +20,7 @@
         <td><%= link_to project.title, project_path(project), class: "nav-link" %></td>
         <td><%= l(project.created_at, format: :short) %></td>
         <td>
-          <%= button_to "Delete", project_path(project), data: { turbo_method: :delete, turbo_confirm: "Delete this project?" }, class: "btn btn-danger btn-sm rounded-pill" %>
+          <%= link_to "Delete", project_path(project), data: { turbo_method: :delete, turbo_confirm: "Delete this project?" }, class: "btn btn-danger btn-sm rounded-pill" %>
         </td>
       </tr>
     <% end %>

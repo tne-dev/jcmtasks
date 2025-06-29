@@ -1,8 +1,8 @@
 <%= simple_form_for @task do |task| %>
-  <%= task.input :title, label: 'Name:', placeholder: 'Enter task name...', error: 'Title is required.' %>
-  <%= task.input :description, label: 'Description:', placeholder: 'Enter task description...' %>
-  <%= task.input :project_id, collection: @projects, prompt: '----- Optional: Assign task to one of your projects... -----', include_blank: true %>
-  <%= task.input :tag_ids, as: :select, collection: @tags, label: 'User tags', input_html: { multiple: true, class: 'form-control tag-select select2' } %>
+  <%= task.input :title, label: t('tasks.form.title.label'), placeholder: t('tasks.form.title.placeholder'), error: t('tasks.form.title.error') %>
+  <%= task.input :description, label: t('tasks.form.description.label'), placeholder: t('tasks.form.description.placeholder') %>
+  <%= task.input :project_id, collection: @projects, prompt: t('tasks.form.project.prompt'), include_blank: true %>
+  <%= task.input :tag_ids, as: :select, collection: @tags, label: t('tasks.form.tags.label'), input_html: { multiple: true, class: 'form-control tag-select select2' } %>
   <%= task.input :file, label: blank? %>
-  <%= task.button :submit, class: 'btn btn-primary' %>
+  <%= task.button :submit, t('tasks.form.submit'), class: 'btn btn-primary' %>
 <% end %>

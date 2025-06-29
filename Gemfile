@@ -83,3 +83,4 @@ gem "cssbundling-rails", "~> 1.4"
 # Add ui/ux components
 gem "simple_form"
 gem "pagy", "~> 9.3"
+gem "i18n"

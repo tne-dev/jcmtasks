@@ -1,7 +1,7 @@
 .d-flex.justify-content-between.align-items-center.mb-3
-  h1.mb-0 = "Edit tag"
-  = link_to "Cancel", tag_path(@tag), class: "btn btn-primary"
+  h1.mb-0 = t('tags.edit.header')
+  = link_to t('tags.edit.cancel'), tag_path(@tag), class: "btn btn-primary"
 
 = simple_form_for @tag do |tag|
-  = tag.input :title, label: blank?, placeholder: "Tag title...", error: "Title is required."
-  = tag.button :submit, class: "btn btn-primary"
+  = tag.input :title, label: blank?, placeholder: t('tags.form.title.placeholder'), error: t('tags.form.title.error')
+  = tag.button :submit, t('tags.form.submit'), class: "btn btn-primary"

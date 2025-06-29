@@ -1,0 +1,35 @@
+cs:
+  tags:
+    index:
+      header: "Štítky uživatele %{name}"
+      actions:
+        new: "Nový štítek"
+      table:
+        title: "Název"
+        created_at: "Vytvořeno"
+        actions: "Akce"
+      confirm_delete: "Opravdu chcete smazat tento štítek?"
+
+    new:
+      header: "Nový štítek"
+      back: "Zpět na seznam štítků"
+
+    show:
+      header: "Štítek: %{title}"
+      buttons:
+        create: "Vytvořit štítek"
+        back: "Zpět na seznam štítků"
+      footer_actions:
+        edit: "Upravit"
+        delete: "Smazat"
+      confirm_delete: "Opravdu chcete smazat tento štítek?"
+
+    edit:
+      header: "Upravit štítek"
+      cancel: "Zrušit"
+
+    form:
+      title:
+        placeholder: "Název štítku..."
+        error: "Název je povinný."
+      submit: "Uložit"

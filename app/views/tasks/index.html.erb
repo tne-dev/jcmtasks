@@ -1,15 +1,15 @@
 <div class="d-flex justify-content-between align-items-center">
-  <h1 class="py-3"><%= current_user.first_name %>'s tasks</h1>
+  <h1 class="py-3"><%= t('tasks.index.header', name: current_user.first_name) %></h1>
   <div class="d-flex justify-content-center align-items-center">
     <%= simple_form_for :task_filter, url: tasks_path, method: :get, html: { class: 'd-flex align-items-center' } do |f| %>
-      <%= f.input :project_id, collection: current_user.projects, prompt: 'All Projects', required: false, include_blank: true, label: false, include_hidden: false, input_html: { class: 'form-select me-2 mt-3 w-auto', name: 'project_id' } %>
-      <%= f.input :is_done, collection: Task.all_statuses(current_user), prompt: 'All states', required: false, label: false, include_hidden: false, input_html: { class: 'form-select me-2 mt-3 w-auto', name: 'is_done' } %>
+      <%= f.input :project_id, collection: current_user.projects, prompt: t('tasks.index.filter.all_projects'), required: false, include_blank: true, label: false, include_hidden: false, input_html: { class: 'form-select me-2 mt-3 w-auto', name: 'project_id' } %>
+      <%= f.input :is_done, collection: Task.all_statuses(current_user), prompt: t('tasks.index.filter.all_states'), required: false, label: false, include_hidden: false, input_html: { class: 'form-select me-2 mt-3 w-auto', name: 'is_done' } %>
       <%= f.input :tag_ids, as: :select, collection: current_user.tags, label: false, required: false, include_hidden: false, input_html: { multiple: true, class: 'form-control tag-select select2 pt-3', name: "tag_ids[]" } %>
-      <%= f.button :submit, 'Filter', class: 'btn btn-primary' %>
+      <%= f.button :submit, t('tasks.form.submit'), class: 'btn btn-primary' %>
     <% end %>
-    <%= link_to "Clear filters", tasks_path, class: "btn btn-secondary ms-2" %>
+    <%= link_to t('tasks.index.filter.clear'), tasks_path, class: "btn btn-secondary ms-2" %>
   </div>
-  <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
+  <%= link_to t('tasks.index.actions.new'), new_task_path, class: "btn btn-primary" %>
 </div>
 
 
@@ -18,12 +18,12 @@
   <table class="table table-light table-striped table-hover">
     <thead class="table-light">
     <tr>
-      <th>Title</th>
-      <th>Project</th>
-      <th>Tags</th>
-      <th>Created at</th>
-      <th>Status</th>
-      <th colspan="2" class="text-center">Actions</th>
+      <th><%= t('tasks.index.table.title') %></th>
+      <th><%= t('tasks.index.table.project') %></th>
+      <th><%= t('tasks.index.table.tags') %></th>
+      <th><%= t('tasks.index.table.created_at') %></th>
+      <th><%= t('tasks.index.table.status') %></th>
+      <th colspan="2" class="text-center"><%= t('tasks.index.table.actions') %></th>
     </tr>
     </thead>
     <tbody class="table-group-divider">
@@ -31,7 +31,7 @@
       <tr>
         <td><%= link_to task.title, task_path(task), class: "nav-link" %></td>
         <td>
-          <%= task.project_title || "Not assigned to a project" %>
+          <%= task.project_title || t('tasks.index.task.title') %>
         </td>
         <td>
           <% if task.tags.any? %>
@@ -49,8 +49,8 @@
         <td style="width: fit-content"><%= render 'tasks/toggle_completion_status_button', task: task %></td>
         <td>
           <div class="d-flex justify-content-end gap-1">
-            <%= link_to "Edit", edit_task_path(task), method: :get, class: "btn btn-outline-primary btn-sm rounded-pill" %>
-            <%= link_to "Delete", task_path(task), data: { turbo_method: :delete, turbo_confirm: "Delete this task?" }, class: "btn btn-danger btn-sm rounded-pill" %>
+            <%= link_to t('tasks.show.footer_actions.edit'), edit_task_path(task), method: :get, class: "btn btn-outline-primary btn-sm rounded-pill" %>
+            <%= link_to t('tasks.show.footer_actions.delete'), task_path(task), data: { turbo_method: :delete, turbo_confirm: t('.confirm_delete') }, class: "btn btn-danger btn-sm rounded-pill" %>
           </div>
         </td>
       </tr>

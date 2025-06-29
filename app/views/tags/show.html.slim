@@ -1,8 +1,8 @@
 .d-flex.justify-content-between.align-items-center.py-3
-  h1 = "Tag: #{@tag.title}"
+  h1 = t('tags.show.header', title: @tag.title )
   .btn-group.gap-1
-    = link_to "Create Tag", new_tag_path, class: "btn btn-outline-primary"
-    = link_to "Return to Tags", tags_path, class: "btn btn-primary"
+    = link_to t('tags.show.buttons.create'), new_tag_path, class: "btn btn-outline-primary"
+    = link_to t('tags.show.buttons.back'), tags_path, class: "btn btn-primary"
 
 .card
   .card-body
@@ -10,6 +10,6 @@
   .card-footer
     .container-fluid.d-flex.w-100.row.justify-content-center.align-items-center
       .d-flex.col.justify-content-center
-        = link_to "Edit tag", edit_tag_path(@tag), class: "btn btn-outline-primary btn-sm rounded-pill"
+        = link_to t('tags.show.footer_actions.edit'), edit_tag_path(@tag), class: "btn btn-outline-primary btn-sm rounded-pill"
       .d-flex.col.justify-content-center
-        = link_to "Delete tag", tag_path(@tag), data: { turbo_method: :delete, turbo_confirm: "Delete this tag?" }, class: "btn btn-danger btn-sm rounded-pill"
+        = link_to t('tags.show.footer_actions.delete'), tag_path(@tag), data: { turbo_method: :delete, turbo_confirm: t('tags.show.confirm_delete') }, class: "btn btn-danger btn-sm rounded-pill"

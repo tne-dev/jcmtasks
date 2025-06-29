@@ -1,0 +1,73 @@
+cs:
+  tasks:
+    index:
+      header: "Úkoly uživatele %{name}"
+      filter:
+        all_projects: "Všechny projekty"
+        all_states: "Všechny stavy"
+        button: "Filtrovat"
+        clear: "Smaž filtr"
+      actions:
+        new: "Nový"
+      table:
+        title: "Název"
+        project: "Projekt"
+        tags: "Štítky"
+        created_at: "Vytvořeno"
+        status: "Stav"
+        actions: "Akce"
+      no_project: "Nepřiřazeno k projektu"
+      no_tags: "Žádné štítky"
+      confirm_delete: "Opravdu chcete smazat tento úkol?"
+
+    new:
+      header: "Nový úkol"
+      back: "Zpět na seznam úkolů"
+
+    show:
+      header: "Úkol: %{title}"
+      buttons:
+        create: "Vytvořit úkol"
+        back: "Zpět na seznam úkolů"
+      description:
+        label: "Popis:"
+        no_description: "Žádný popis"
+      project:
+        label: "Projekt:"
+        no_project: "Nepřiřazeno k projektu"
+      tags:
+        label: "Štítky:"
+        no_tags: "Žádné štítky"
+      attachments:
+        label: "Přílohy:"
+        no_attachments: "Žádné přílohy"
+      footer_actions:
+        edit: "Upravit"
+        toggle: "Přepnout stav dokončení"
+        delete: "Smazat"
+      confirm_delete: "Opravdu chcete smazat tento úkol?"
+      toggle_confirm: "Opravdu chcete změnit stav úkolu?\nAktuální stav: %{status}"
+
+    edit:
+      header: "Upravit úkol"
+      cancel: "Zrušit"
+
+    form:
+      title:
+        label: "Název:"
+        placeholder: "Zadejte název úkolu..."
+        error: "Název je povinný."
+      description:
+        label: "Popis:"
+        placeholder: "Zadejte popis úkolu..."
+      project:
+        prompt: "----- Nepovinné: přiřadit úkol k projektu -----"
+      tags:
+        label: "Štítky"
+      file:
+        label: "Příloha"
+      submit: "Uložit"
+
+    toggle:
+      button: "Dokončit / Nedokončit"
+      confirm: "Opravdu chcete změnit stav úkolu?\nAktuální stav: %{status}"

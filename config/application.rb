@@ -27,5 +27,10 @@ module Tasks
       g.test_framework :rspec, fixtures: true, view_specs:  false, helper_specs: false, routing_specs: false, controller_specs: false, request_specs:  true
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
+
+    config.i18n.available_locales = %i[cs en]
+    config.i18n.default_locale = :cs
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml')]
+    config.i18n.fallbacks = [I18n.default_locale]
   end
 end

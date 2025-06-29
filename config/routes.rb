@@ -10,16 +10,19 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "tasks#index"
-  devise_for :users
+  scope "(:locale)", locale: /cs|en/ do
+    root "tasks#index"
+    devise_for :users
 
-  resources :projects
-  resources :tasks do
-    member do
-      patch :update_completion_status
+    resources :projects
+    resources :tasks do
+      member do
+        patch :update_completion_status
+      end
     end
-  end
-  resources :tags
+    resources :tags
 
-  get "search", to: "search#index"
+    get "search", to: "search#index"
+
+  end
 end

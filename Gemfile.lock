@@ -429,6 +429,7 @@ DEPENDENCIES
   devise (~> 4.9)
   factory_bot_rails
   faker (~> 3.0)
+  i18n
   importmap-rails
   jbuilder
   kamal

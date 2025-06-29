@@ -1,21 +1,21 @@
 .d-flex.justify-content-between.align-items-center.py-3
-  h1 = "#{current_user.first_name}'s projects"
-  = link_to "New Project", new_project_path, class: "btn btn-primary"
+  h1 = t('projects.index.header', name: current_user.first_name)
+  = link_to t('projects.index.actions.new'), new_project_path, class: "btn btn-primary"
 
 - extend Pagy::Frontend
 .table-responsive
   table.table.table-striped.table-hover
     thead.table-light
       tr
-        th Title
-        th Created at
-        th Action
+        th = t('projects.index.table.title')
+        th = t('projects.index.table.created_at')
+        th = t('projects.index.table.actions')
     tbody.table-group-divider
       - @projects.each do |project|
         tr
           td = link_to project.title, project_path(project), class: "nav-link"
           td = l(project.created_at, format: :short)
-          td = link_to "Delete", project_path(project), data: { turbo_method: :delete, turbo_confirm: "Delete this project?" }, class: "btn btn-danger btn-sm rounded-pill"
+          td = link_to t('projects.show.footer_actions.delete'), project_path(project), data: { turbo_method: :delete, turbo_confirm: t('projects.index.confirm_delete') }, class: "btn btn-danger btn-sm rounded-pill"
 
 = render "shared/pagination", pagy: @pagy
 

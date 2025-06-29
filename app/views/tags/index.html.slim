@@ -1,21 +1,21 @@
 .d-flex.justify-content-between.align-items-center.py-3
-  h1 = "#{current_user.first_name}'s tags"
-  = link_to 'New Tag', new_tag_path, class: 'btn btn-primary'
+  h1 = t('tags.index.header', name: current_user.first_name)
+  = link_to t('tags.index.actions.new'), new_tag_path, class: 'btn btn-primary'
 
 - extend Pagy::Frontend
 .table-responsive
   table.table.table-striped.table-hover
     thead.table-light
       tr
-        th Title
-        th Created at
-        th Action
+        th = t('tags.index.table.title')
+        th = t('tags.index.table.created_at')
+        th = t('tags.index.table.actions')
     tbody.table-group-divider
       - @tags.each do |tag|
         tr
           td = tag.title
           td = l(tag.created_at, format: :short)
-          td = link_to 'Delete', tag_path(tag), data: { turbo_method: :delete, turbo_confirm: 'Delete this tag?' }, class: 'btn btn-danger btn-sm rounded-pill'
+          td = link_to t('tags.show.footer_actions.delete'), tag_path(tag), data: { turbo_method: :delete, turbo_confirm: t('tags.index.confirm_delete') }, class: 'btn btn-danger btn-sm rounded-pill'
 
 = render 'shared/pagination', pagy: @pagy
 

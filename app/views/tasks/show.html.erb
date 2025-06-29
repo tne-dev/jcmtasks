@@ -1,27 +1,27 @@
 <div class="d-flex justify-content-between align-items-center py-3">
-  <h1>Task: <%= @task.title %></h1>
+  <h1><%= t('tasks.show.header', title: @task.title) %></h1>
   <div class="btn-group gap-1">
-    <%= link_to "Create Task", new_task_path, class: "btn btn-outline-primary" %>
-    <%= link_to "Return to Tasks", tasks_path, class: "btn btn-primary" %>
+    <%= link_to t('tasks.show.buttons.create'), new_task_path, class: "btn btn-outline-primary" %>
+    <%= link_to t('tasks.show.buttons.back'), tasks_path, class: "btn btn-primary" %>
   </div>
 </div>
 
 <div class="card">
   <%= render "tasks/task_status_span", task: @task %>
   <div class="card-body">
-    <h5 class="card-title">Description:</h5>
-    <p class="card-text"><%= @task.description.presence || "No description provided." %></p>
+    <h5 class="card-title"><%= t('tasks.form.description.label') %></h5>
+    <p class="card-text"><%= @task.description.presence || t('tasks.show.description.no_description') %></p>
     <hr>
-    <h5 class="card-title">Project:</h5>
+    <h5 class="card-title"><%= t('tasks.show.project.label') %></h5>
     <% if @task.project.present? %>
       <p class="card-text">
         <%= link_to @task.project.title, project_path(@task.project), class: "nav-link" %>
       </p>
     <% else %>
-      <p class="card-text text-muted">Not assigned to a project</p>
+      <p class="card-text text-muted"><%= t('tasks.show.project.no_project') %></p>
     <% end %>
     <hr>
-    <h5 class="card-title">Tags:</h5>
+    <h5 class="card-title"><%= t('tasks.show.tags.label') %></h5>
     <% if @task.tags.any? %>
       <p class="card-text">
         <% @task.tags.each do |tag| %>
@@ -29,28 +29,28 @@
         <% end %>
       </p>
     <% else %>
-      <p class="card-text text-muted">No tags assigned</p>
+      <p class="card-text text-muted"><%= t('tasks.show.tags.no_tags') %></p>
     <% end %>
     <hr>
-    <h5 class="card-title">Attachments:</h5>
+    <h5 class="card-title"><%= t('tasks.show.attachments.label') %></h5>
     <% if @task.file.attached? %>
       <p class="card-text">
         <%= link_to @task.file.filename.to_s, rails_blob_path(@task.file, disposition: "attachment"), class: "nav-link" %>
       </p>
     <% else %>
-      <p class="card-text text-muted">No attachments</p>
+      <p class="card-text text-muted"><%= t('tasks.show.attachments.no_attachments') %></p>
     <% end %>
     </div>
     <div class="card-footer">
       <div class="container-fluid d-flex w-100 row justify-content-center align-items-center">
         <div class="d-flex col justify-content-center">
-        <%= link_to "Edit Task", edit_task_path(@task), class: "btn btn-outline-primary btn-sm rounded-pill" %>
+        <%= link_to t('tasks.show.footer_actions.edit'), edit_task_path(@task), class: "btn btn-outline-primary btn-sm rounded-pill" %>
         </div>
         <div class="d-flex col justify-content-center">
           <%= render 'tasks/toggle_completion_status_button', task: @task %>
         </div>
         <div class="d-flex col justify-content-center">
-          <%= link_to "Delete task", task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Delete this task?" }, class: "btn btn-danger btn-sm rounded-pill" %>
+          <%= link_to t('tasks.show.footer_actions.delete'), task_path(@task), data: { turbo_method: :delete, turbo_confirm: t('tasks.show.confirm_delete') }, class: "btn btn-danger btn-sm rounded-pill" %>
         </div>
       </div>
     </div>

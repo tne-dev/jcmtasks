@@ -1,0 +1,40 @@
+cs:
+  projects:
+    index:
+      header: "Projekty uživatele %{name}"
+      actions:
+        new: "Nový projekt"
+      table:
+        title: "Název"
+        created_at: "Vytvořeno"
+        actions: "Akce"
+      confirm_delete: "Opravdu chcete smazat tento projekt?"
+
+    new:
+      header: "Nový"
+      back: "Zpět na seznam projektů"
+
+    show:
+      header: "Projekt: %{title}"
+      buttons:
+        create: "Vytvořit projekt"
+        back: "Zpět na seznam projektů"
+      position:
+        label: "Pozice projektu:"
+      footer_actions:
+        edit: "Upravit"
+        delete: "Smazat"
+      confirm_delete: "Opravdu chcete smazat tento projekt?"
+
+    edit:
+      header: "Upravit"
+      cancel: "Zrušit"
+
+    form:
+      title:
+        placeholder: "Název projektu..."
+        error: "Název je povinný."
+      position:
+        placeholder: "Pozice projektu..."
+        error: "Pozice je povinná."
+      submit: "Uložit"

@@ -1,3 +1,3 @@
 <div id="task-<%= task.id %>-toggle">
-  <%= link_to "Complete/Incomplete", update_completion_status_task_path(task), class: "btn btn-sm rounded-pill btn-warning", data: { turbo_method: "patch", turbo_confirm: "Do you wish to update task state?\nCurrent state: #{task.status?}" } %>
+  <%= link_to t('tasks.toggle.button'), update_completion_status_task_path(task), class: "btn btn-sm rounded-pill btn-warning", data: { turbo_method: "patch", turbo_confirm: t('tasks.toggle.confirm'), status: task.status? } %>
 </div>

@@ -54,6 +54,10 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-rspec", require: false
   gem "bullet"
+  gem "rspec-rails", "~> 8.0"
+  gem "factory_bot_rails"
+  gem "faker", "~> 3.0"
+  gem 'shoulda-matchers',  '~> 5.0'
 end
 
 group :development do

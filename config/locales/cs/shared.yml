@@ -1,0 +1,13 @@
+cs:
+  shared:
+    navbar:
+      tasks: "Úkoly"
+      projects: "Projekty"
+      tags: "Štítky"
+      search:
+        placeholder: "Vyhledat podle názvu…"
+        button: "Hledat"
+      links:
+        login: "Přihlásit se"
+        signup: "Zaregistrovat se"
+        logout: "Odhlásit se"

@@ -1,0 +1,3 @@
+cs:
+  pagy:
+    info: "Zobrazuji položky %{from}–%{to} z celkových %{count}"

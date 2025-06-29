@@ -5,8 +5,8 @@
       li
         = highlight(result.title, @query)
         - if result.is_a?(Task)
-          = link_to "See detail", task_path(result)
+          = link_to t('search.actions.see_detail'), task_path(result)
         - if result.is_a?(Project)
-          = link_to "See detail", project_path(result)
+          = link_to t('search.actions.see_detail'), project_path(result)
         - if result.is_a?(Tag)
-          = link_to "See detail", tag_path(result)
+          = link_to t('search.actions.see_detail'), tag_path(result)

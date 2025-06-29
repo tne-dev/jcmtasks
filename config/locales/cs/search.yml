@@ -1,0 +1,13 @@
+cs:
+  search:
+    index:
+      header: "Výsledky hledání pro: %{query}"
+      back: "Zpět na hlavní stránku"
+      no_results: "Pro %{query} nic nebylo nalezeno"
+      prompt: "Vyhledejte něco ve vyhledávacím poli…"
+    results:
+      tasks: "Úkoly:"
+      projects: "Projekty:"
+      tags: "Štítky:"
+    actions:
+      see_detail: "Zobrazit detail"

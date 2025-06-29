@@ -1,0 +1,35 @@
+en:
+  tags:
+    index:
+      header: "Tags for %{name}"
+      actions:
+        new: "New Tag"
+      table:
+        title: "Title"
+        created_at: "Created at"
+        actions: "Actions"
+      confirm_delete: "Are you sure you want to delete this tag?"
+
+    new:
+      header: "New Tag"
+      back: "Back to Tags"
+
+    show:
+      header: "Tag: %{title}"
+      buttons:
+        create: "Create Tag"
+        back: "Back to Tags"
+      footer_actions:
+        edit: "Edit"
+        delete: "Delete"
+      confirm_delete: "Are you sure you want to delete this tag?"
+
+    edit:
+      header: "Edit Tag"
+      cancel: "Cancel"
+
+    form:
+      title:
+        placeholder: "Tag title..."
+        error: "Title is required."
+      submit: "Save"

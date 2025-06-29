@@ -1,0 +1,13 @@
+en:
+  shared:
+    navbar:
+      tasks: "Tasks"
+      projects: "Projects"
+      tags: "Tags"
+      search:
+        placeholder: "Search by title…"
+        button: "Search"
+      links:
+        login: "Log in"
+        signup: "Sign up"
+        logout: "Log out"

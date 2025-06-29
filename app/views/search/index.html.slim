@@ -1,14 +1,14 @@
 .d-flex.justify-content-between.align-items-center.mb-3
-  h1.mb-0 = "Search results for: #{@query}"
-  = link_to "Return to Homepage", root_path, class: "btn btn-primary"
+  h1.mb-0 = t('search.index.header', query: @query)
+  = link_to t('search.index.back'), root_path, class: "btn btn-primary"
 - if @query.present?
   - if @search_tasks != []
-    = render "shared/search_results", title: "Tasks: ", results: @search_tasks, query: @query
+    = render "search/search_results", title: t('search.results.tasks'), results: @search_tasks, query: @query
   - if @search_projects != []
-    = render "shared/search_results", title: "Projects: ", results: @search_projects, query: @query
+    = render "search/search_results", title: t('search.results.projects'), results: @search_projects, query: @query
   - if @search_tags != []
-    = render "shared/search_results", title: "Tags: ", results: @search_tags, query: @query
+    = render "search/search_results", title: t('search.results.tags'), results: @search_tags, query: @query
   - if @search_tasks.empty? && @search_projects.empty? && @search_tags.empty?
-    p = "Nothing found for #{@query}"
+    p = t('search.index.no_results', query: @query)
 - else
-  p = "Search for something up in the search field..."
+  p = t('search.index.prompt')

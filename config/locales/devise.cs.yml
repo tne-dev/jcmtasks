@@ -1,0 +1,63 @@
+cs:
+  devise:
+    confirmations:
+      confirmed: "Vaše e-mailová adresa byla úspěšně potvrzena."
+      send_instructions: "Obdržíte e-mail s instrukcemi, jak potvrdit svou e-mailovou adresu během několika minut."
+      send_paranoid_instructions: "Pokud váš e-mail existuje v naší databázi, obdržíte e-mail s instrukcemi, jak potvrdit svou e-mailovou adresu během několika minut."
+    failure:
+      already_authenticated: "Jste již přihlášen(a)."
+      inactive: "Váš účet ještě není aktivován."
+      invalid: "Neplatné %{authentication_keys} nebo heslo."
+      locked: "Váš účet je zablokován."
+      last_attempt: "Máte poslední pokus, než bude váš účet zablokován."
+      not_found_in_database: "Neplatné %{authentication_keys} nebo heslo."
+      timeout: "Platnost vaší relace vypršela. Pro pokračování se prosím znovu přihlaste."
+      unauthenticated: "Pro pokračování se musíte přihlásit nebo zaregistrovat."
+      unconfirmed: "Nejprve musíte potvrdit svou e-mailovou adresu."
+    mailer:
+      confirmation_instructions:
+        subject: "Instrukce k potvrzení"
+      reset_password_instructions:
+        subject: "Instrukce k obnovení hesla"
+      unlock_instructions:
+        subject: "Instrukce k odblokování účtu"
+      email_changed:
+        subject: "E-mail byl změněn"
+      password_change:
+        subject: "Heslo bylo změněno"
+    omniauth_callbacks:
+      failure: "Autentizace pomocí %{kind} se nezdařila kvůli \"%{reason}\"."
+      success: "Úspěšně jste se autentizovali pomocí %{kind}."
+    passwords:
+      no_token: "Na tuto stránku nemůžete přistoupit bez odkazu z e-mailu pro obnovení hesla. Pokud k ní přistupujete z e-mailu pro reset hesla, ujistěte se, že používáte úplnou URL poskytnutou v e-mailu."
+      send_instructions: "Obdržíte e-mail s instrukcemi, jak obnovit své heslo během několika minut."
+      send_paranoid_instructions: "Pokud váš e-mail existuje v naší databázi, obdržíte odkaz na obnovení hesla během několika minut."
+      updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni."
+      updated_not_active: "Vaše heslo bylo úspěšně změněno."
+    registrations:
+      destroyed: "Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že se brzy vrátíte."
+      signed_up: "Vítejte! Registrace proběhla úspěšně."
+      signed_up_but_inactive: "Registrace proběhla úspěšně, ale váš účet ještě není aktivován."
+      signed_up_but_locked: "Registrace proběhla úspěšně, ale váš účet je zablokován."
+      signed_up_but_unconfirmed: "Na váš e-mail byla odeslána zpráva s odkazem k potvrzení. Pro aktivaci účtu postupujte podle odkazu."
+      update_needs_confirmation: "Účet byl úspěšně aktualizován, ale musíme ověřit vaši novou e-mailovou adresu. Zkontrolujte e-mail a potvrďte novou adresu."
+      updated: "Váš účet byl úspěšně aktualizován."
+      updated_but_not_signed_in: "Váš účet byl úspěšně aktualizován, ale protože jste změnili heslo, musíte se znovu přihlásit."
+    sessions:
+      signed_in: "Úspěšně přihlášeno."
+      signed_out: "Úspěšně odhlášeno."
+      already_signed_out: "Jste již odhlášeni."
+    unlocks:
+      send_instructions: "Obdržíte e-mail s instrukcemi, jak odblokovat svůj účet během několika minut."
+      send_paranoid_instructions: "Pokud váš účet existuje, obdržíte e-mail s instrukcemi k odblokování během několika minut."
+      unlocked: "Váš účet byl úspěšně odblokován. Přihlaste se, prosím, pro pokračování."
+  errors:
+    messages:
+      already_confirmed: "již byl potvrzen, zkuste se přihlásit"
+      confirmation_period_expired: "je třeba potvrdit do %{period}, požádejte o nový"
+      expired: "vypršelo, požádejte o nový"
+      not_found: "nenalezeno"
+      not_locked: "nebyl zablokován"
+      not_saved:
+        one: "1 chyba zabránila uložení %{resource}:"
+        other: "%{count} chyb zabránilo uložení %{resource}:"

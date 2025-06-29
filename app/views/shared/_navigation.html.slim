@@ -2,21 +2,21 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary.px-4.fixed-top.z-1000(style="height
   .container-fluid.row-cols-3
     / --- Title and links ---
     .d-flex.collapse.navbar-collapse.col.justify-content-start.align-items-baseline#mainNavbar
-      = link_to "Tasks", root_path, class: "navbar-brand"
+      = link_to t('shared.navbar.tasks'), root_path, class: "navbar-brand"
       - if user_signed_in?
         ul.navbar-nav.mb-2.mb-lg-0
           li.nav-item
-            = link_to "Projects", projects_path, class: "nav-link"
+            = link_to t('shared.navbar.projects'), projects_path, class: "nav-link"
           li.nav-item
-            = link_to "Tags", tags_path, class: "nav-link"
+            = link_to t('shared.navbar.tags'), tags_path, class: "nav-link"
 
     / --- Search form ---
     - if user_signed_in?
       .d-flex.collapse.navbar-collapse.col.align-items-center.justify-content-evenly.h-100.py-1
         .d-flex.align-items-center
           = simple_form_for :search, url: search_path, method: :get, html: { class: "d-flex align-items-baseline justify-content-center gap-1 w-100", style: "max-width:400px;" } do |f|
-            = f.input :query, label: false, placeholder: "Search for title...", input_html: { class: "form-control mt-3", value: params.dig(:search, :query) || params[:query] }
-            = f.button :button, type: :submit, class: "btn btn-outline-success" do
+            = f.input :query, label: false, placeholder: t('shared.navbar.search.placeholder'), input_html: { class: "form-control mt-3", value: params.dig(:search, :query) || params[:query] }
+            = f.button :button, t('shared.navbar.search.button'), type: :submit, class: "btn btn-outline-success" do
               i.bi.bi-search
               |  Search
 
@@ -26,10 +26,10 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary.px-4.fixed-top.z-1000(style="height
         .btn-group
           - if user_signed_in?
             = link_to current_user.full_name, edit_user_registration_path, class: "btn btn-outline-secondary"
-            = link_to "Log out", destroy_user_session_path, data: { turbo_method: "delete" }, class: "btn btn-outline-danger"
+            = link_to t('shared.navbar.links.logout'), destroy_user_session_path, data: { turbo_method: "delete" }, class: "btn btn-outline-danger"
           - else
-            = link_to "Log in", new_user_session_path, class: "btn btn-outline-primary"
-            = link_to "Sign up", new_user_registration_path, class: "btn btn-primary"
+            = link_to t('shared.navbar.links.login'), new_user_session_path, class: "btn btn-outline-primary"
+            = link_to t('shared.navbar.links.signup'), new_user_registration_path, class: "btn btn-primary"
 
 
 / <nav class="navbar navbar-expand-lg bg-body-tertiary px-4 fixed-top z-1000", style="height: 4rem">

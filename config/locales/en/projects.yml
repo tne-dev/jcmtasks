@@ -1,0 +1,40 @@
+en:
+  projects:
+    index:
+      header: "Projects for %{name}"
+      actions:
+        new: "New Project"
+      table:
+        title: "Title"
+        created_at: "Created at"
+        actions: "Actions"
+      confirm_delete: "Are you sure you want to delete this project?"
+
+    new:
+      header: "New Project"
+      back: "Back to Projects"
+
+    show:
+      header: "Project: %{title}"
+      buttons:
+        create: "Create Project"
+        back: "Back to Projects"
+      position:
+        label: "Project Position:"
+      footer_actions:
+        edit: "Edit"
+        delete: "Delete"
+      confirm_delete: "Are you sure you want to delete this project?"
+
+    edit:
+      header: "Edit Project"
+      cancel: "Cancel"
+
+    form:
+      title:
+        placeholder: "Project title..."
+        error: "Title is required."
+      position:
+        placeholder: "Project position..."
+        error: "Position is required."
+      submit: "Save"

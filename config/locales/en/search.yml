@@ -1,0 +1,13 @@
+en:
+  search:
+    index:
+      header: "Search results for: %{query}"
+      back: "Return to homepage"
+      no_results: "Nothing found for %{query}"
+      prompt: "Search for something using the search field…"
+    results:
+      tasks: "Tasks:"
+      projects: "Projects:"
+      tags: "Tags:"
+    actions:
+      see_detail: "See detail"

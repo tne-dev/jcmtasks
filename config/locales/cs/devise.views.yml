@@ -1,0 +1,46 @@
+cs:
+  devise:
+    views:
+      shared_links:
+        log_in: "Přihlásit se"
+        sign_up: "Zaregistrovat se"
+        forgot_password: "Zapomněli jste heslo?"
+        did_not_receive_confirmation: "Nepřišli vám instrukce k potvrzení?"
+        did_not_receive_unlock: "Nepřišli vám instrukce k odblokování?"
+      omniauth:
+        sign_in_with: "Přihlásit se přes %{provider}"
+
+      sessions:
+        new:
+          title: "Přihlášení"
+          email: "E-mail"
+          password: "Heslo"
+          remember_me: "Zapamatovat si mě"
+          submit: "Přihlásit se"
+
+      registrations:
+        new:
+          title: "Registrace"
+          email: "E-mail"
+          first_name: "Jméno"
+          last_name: "Příjmení"
+          password: "Heslo"
+          password_hint: "(minimálně %{count} znaků)"
+          password_confirmation: "Potvrzení hesla"
+          submit: "Registrovat se"
+
+        edit:
+          title: "Úprava účtu"
+          first_name: "Jméno"
+          last_name: "Příjmení"
+          email: "E-mail"
+          password_hint: "Nechte prázdné, pokud nechcete měnit heslo"
+          password_confirmation: "Potvrzení nového hesla"
+          current_password_hint: "Pro potvrzení změn zadejte současné heslo"
+          cancel: "Zrušit"
+          update: "Aktualizovat"
+          cancel_account:
+            title: "Zrušit můj účet"
+            prompt: "Nejste s našimi službami spokojeni?"
+            button: "Zrušit můj účet"
+            confirm: "Opravdu chcete zrušit svůj účet?"

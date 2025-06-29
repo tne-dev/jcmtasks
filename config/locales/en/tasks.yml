@@ -1,0 +1,77 @@
+en:
+  tasks:
+    index:
+      header: "%{name}'s tasks"
+      filter:
+        all_projects: "All Projects"
+        all_states: "All states"
+        button: "Filter"
+        clear: "Clear filters"
+      actions:
+        new: "New Task"
+      table:
+        title: "Title"
+        project: "Project"
+        tags: "Tags"
+        created_at: "Created at"
+        status: "Status"
+        actions: "Actions"
+      no_project: "Not assigned to a project"
+      no_tags: "No tags"
+      confirm_delete: "Are you sure you want to delete this task?"
+
+    new:
+      header: "New Task"
+      back: "Back to Tasks"
+
+    show:
+      header: "Task: %{title}"
+      buttons:
+        create: "Create Task"
+        back: "Back to Tasks"
+      description:
+        label: "Description:"
+        no_description: "No description"
+      project:
+        label: "Project:"
+        no_project: "Not assigned to a project"
+      tags:
+        label: "Tags:"
+        no_tags: "No tags"
+      attachments:
+        label: "Attachments:"
+        no_attachments: "No attachments"
+      footer_actions:
+        edit: "Edit"
+        toggle: "Toggle completion status"
+        delete: "Delete"
+      confirm_delete: "Are you sure you want to delete this task?"
+      toggle_confirm: |
+        Are you sure you want to change the task status?
+        Current status: %{status}
+
+    edit:
+      header: "Edit Task"
+      cancel: "Cancel"
+
+    form:
+      title:
+        label: "Title:"
+        placeholder: "Enter task name..."
+        error: "Title is required."
+      description:
+        label: "Description:"
+        placeholder: "Enter task description..."
+      project:
+        prompt: "----- Optional: assign task to a project -----"
+      tags:
+        label: "Tags"
+      file:
+        label: "Attachment"
+      submit: "Save"
+
+    toggle:
+      button: "Complete / Incomplete"
+      confirm: |
+        Are you sure you want to change the task status?
+        Current status: %{status}

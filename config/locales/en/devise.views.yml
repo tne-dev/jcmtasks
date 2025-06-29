@@ -1,0 +1,46 @@
+en:
+  devise:
+    views:
+      shared_links:
+        log_in: "Log in"
+        sign_up: "Sign up"
+        forgot_password: "Forgot your password?"
+        did_not_receive_confirmation: "Didn't receive confirmation instructions?"
+        did_not_receive_unlock: "Didn't receive unlock instructions?"
+      omniauth:
+        sign_in_with: "Sign in with %{provider}"
+
+      sessions:
+        new:
+          title: "Log in"
+          email: "Email"
+          password: "Password"
+          remember_me: "Remember me"
+          submit: "Log in"
+
+      registrations:
+        new:
+          title: "Sign up"
+          email: "Email"
+          first_name: "First name"
+          last_name: "Last name"
+          password: "Password"
+          password_hint: "(minimum %{count} characters)"
+          password_confirmation: "Password confirmation"
+          submit: "Sign up"
+
+        edit:
+          title: "Edit account"
+          first_name: "First name"
+          last_name: "Last name"
+          email: "Email"
+          password_hint: "Leave blank if you don't want to change it"
+          password_confirmation: "Password confirmation"
+          current_password_hint: "We need your current password to confirm changes"
+          cancel: "Cancel"
+          update: "Update"
+          cancel_account:
+            title: "Cancel my account"
+            prompt: "Unhappy with our service?"
+            button: "Cancel my account"
+            confirm: "Are you sure you want to cancel your account?"

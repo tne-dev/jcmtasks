@@ -1,0 +1,3 @@
+en:
+  pagy:
+    info: "Displaying items %{from}–%{to} of %{count} in total"

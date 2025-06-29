@@ -1,0 +1,15 @@
+.d-flex.justify-content-between.align-items-center.py-3
+  h1 = "Tag: #{@tag.title}"
+  .btn-group.gap-1
+    = link_to "Create Tag", new_tag_path, class: "btn btn-outline-primary"
+    = link_to "Return to Tags", tags_path, class: "btn btn-primary"
+
+.card
+  .card-body
+
+  .card-footer
+    .container-fluid.d-flex.w-100.row.justify-content-center.align-items-center
+      .d-flex.col.justify-content-center
+        = link_to "Edit tag", edit_tag_path(@tag), class: "btn btn-outline-primary btn-sm rounded-pill"
+      .d-flex.col.justify-content-center
+        = link_to "Delete tag", tag_path(@tag), data: { turbo_method: :delete, turbo_confirm: "Delete this tag?" }, class: "btn btn-danger btn-sm rounded-pill"

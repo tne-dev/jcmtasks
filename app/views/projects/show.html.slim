@@ -1,0 +1,16 @@
+.d-flex.justify-content-between.align-items-center.py-3
+  h1 = "Project: #{@project.title}"
+  .btn-group.gap-1
+    = link_to "Create Project", new_project_path, class: "btn btn-outline-primary"
+    = link_to "Return to Tags", projects_path, class: "btn btn-primary"
+
+.card
+  .card-body
+    h5.card-title = "Project position:"
+    p.card-text = @project.position
+  .card-footer
+    .container-fluid.d-flex.w-100.row.justify-content-center.align-items-center
+      .d-flex.col.justify-content-center
+        = link_to "Edit project", edit_project_path(@project), class: "btn btn-outline-primary btn-sm rounded-pill"
+      .d-flex.col.justify-content-center
+        = link_to "Delete project", project_path(@project), data: { turbo_method: :delete, turbo_confirm: "Delete this project?" }, class: "btn btn-danger btn-sm rounded-pill"

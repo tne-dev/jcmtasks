@@ -1,0 +1,53 @@
+.d-flex.justify-content-between.align-items-center.py-3
+  h1 = "#{current_user.first_name}'s tags"
+  = link_to 'New Tag', new_tag_path, class: 'btn btn-primary'
+
+- extend Pagy::Frontend
+.table-responsive
+  table.table.table-striped.table-hover
+    thead.table-light
+      tr
+        th Title
+        th Created at
+        th Action
+    tbody.table-group-divider
+      - @tags.each do |tag|
+        tr
+          td = tag.title
+          td = l(tag.created_at, format: :short)
+          td = link_to 'Delete', tag_path(tag), data: { turbo_method: :delete, turbo_confirm: 'Delete this tag?' }, class: 'btn btn-danger btn-sm rounded-pill'
+
+= render 'shared/pagination', pagy: @pagy
+
+
+/// ----- original erb file ----- ///
+
+/ <div class="d-flex justify-content-between align-items-center py-3">
+/   <h1><%= current_user.first_name %>'s tags</h1>
+/   <%= link_to "New Tag", new_tag_path, class: "btn btn-primary" %>
+/ </div>
+/
+/ <% extend Pagy::Frontend %>
+/ <div class="table-responsive">
+/   <table class="table table-striped table-hover">
+/     <thead class="table-light">
+/     <tr>
+/       <th>Title</th>
+/       <th>Created at</th>
+/       <th>Action</th>
+/     </tr>
+/     </thead>
+/     <tbody class="table-group-divider">
+/     <% @tags.each do |tag| %>
+/       <tr>
+/         <td><%= tag.title %></td>
+/         <td><%= l(tag.created_at, format: :short) %></td>
+/         <td>
+/           <%= link_to "Delete", tag_path(tag), data: { turbo_method: :delete, turbo_confirm: "Delete this tag?" }, class: "btn btn-danger btn-sm rounded-pill" %>
+/         </td>
+/       </tr>
+/     <% end %>
+/     </tbody>
+/   </table>
+/ </div>
+/ <%= render "shared/pagination", pagy: @pagy %>

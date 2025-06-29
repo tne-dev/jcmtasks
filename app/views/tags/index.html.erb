@@ -19,7 +19,7 @@
         <td><%= tag.title %></td>
         <td><%= l(tag.created_at, format: :short) %></td>
         <td>
-          <%= button_to "Delete", tag_path(tag), data: { turbo_method: :delete, turbo_confirm: "Delete this tag?" }, class: "btn btn-danger btn-sm rounded-pill" %>
+          <%= link_to "Delete", tag_path(tag), data: { turbo_method: :delete, turbo_confirm: "Delete this tag?" }, class: "btn btn-danger btn-sm rounded-pill" %>
         </td>
       </tr>
     <% end %>

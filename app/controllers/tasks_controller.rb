@@ -4,17 +4,17 @@ class TasksController < ApplicationController
 
   def index
     tasks = current_user.tasks.includes(:project, :tags).order(created_at: :desc)
-    tasks = case
-    when params[:project_id].present?
-              project = @projects.find_by(id: params[:project_id])
-              project ? tasks.per_project(project) : tasks
-
-    when params[:is_done].present?
-              desired = ActiveModel::Type::Boolean.new.cast(params[:is_done])
-              tasks = tasks.tasks_per_status(desired)
-
-    else
-              tasks
+    if params[:project_id].present?
+      project = @projects.find_by(id: params[:project_id])
+      tasks = project ? tasks.filter_per_project(project) : tasks
+    end
+    if params[:is_done].present?
+      desired = ActiveModel::Type::Boolean.new.cast(params[:is_done])
+      tasks = tasks.filter_per_status(desired)
+    end
+    if params[:tag_ids].present?
+      tag_ids = Array(params[:tag_ids]).reject(&:blank?)
+      tasks = tasks.filter_per_tags(tag_ids) if tag_ids.any?
     end
     @pagy, @tasks = pagy(tasks)
   end

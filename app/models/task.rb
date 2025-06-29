@@ -15,11 +15,12 @@ class Task < ApplicationRecord
   validates :is_done, inclusion: { in: [ true, false ] }
 
   #-----scopes-----
-  scope :per_project, ->(project) { where(project: project) }
   scope :search_for_title, ->(searched_term) {
     where("LOWER(title) ILIKE ?", "%#{searched_term.to_s.downcase}%")
   }
-  scope :tasks_per_status, ->(is_done) { where(is_done: is_done) }
+  scope :filter_per_project, ->(project) { where(project: project) }
+  scope :filter_per_status, ->(is_done) { where(is_done: is_done) }
+  scope :filter_per_tags, ->(tag_ids) { joins(:tags).where(tags: { id: Array(tag_ids) }).distinct }
 
   def status?
     is_done ? "Complete" : "Incomplete"

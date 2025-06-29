@@ -1,10 +1,14 @@
 <div class="d-flex justify-content-between align-items-center">
   <h1 class="py-3"><%= current_user.first_name %>'s tasks</h1>
-  <%= simple_form_for :task_filter, url: tasks_path, method: :get, html: { class: 'd-flex align-items-center' } do |f| %>
-    <%= f.input :project_id, collection: current_user.projects, prompt: 'All Projects', required: false, include_blank: true, label: false, input_html: { class: 'form-select me-2 mt-3 w-auto', name: 'project_id' } %>
-    <%= f.input :is_done, collection: Task.all_statuses(current_user), prompt: 'All states', required: false, label: false, input_html: { class: 'form-select me-2 mt-3 w-auto', name: 'is_done' } %>
-    <%= f.button :submit, 'Filter', class: 'btn btn-primary' %>
-  <% end %>
+  <div class="d-flex justify-content-center align-items-center">
+    <%= simple_form_for :task_filter, url: tasks_path, method: :get, html: { class: 'd-flex align-items-center' } do |f| %>
+      <%= f.input :project_id, collection: current_user.projects, prompt: 'All Projects', required: false, include_blank: true, label: false, include_hidden: false, input_html: { class: 'form-select me-2 mt-3 w-auto', name: 'project_id' } %>
+      <%= f.input :is_done, collection: Task.all_statuses(current_user), prompt: 'All states', required: false, label: false, include_hidden: false, input_html: { class: 'form-select me-2 mt-3 w-auto', name: 'is_done' } %>
+      <%= f.input :tag_ids, as: :select, collection: current_user.tags, label: false, required: false, include_hidden: false, input_html: { multiple: true, class: 'form-control tag-select select2 pt-3', name: "tag_ids[]" } %>
+      <%= f.button :submit, 'Filter', class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to "Clear filters", tasks_path, class: "btn btn-secondary ms-2" %>
+  </div>
   <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
 </div>
 

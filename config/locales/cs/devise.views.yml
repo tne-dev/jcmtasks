@@ -43,4 +43,4 @@ cs:
             title: "Zrušit můj účet"
             prompt: "Nejste s našimi službami spokojeni?"
             button: "Zrušit můj účet"
-            confirm: "Opravdu chcete zrušit svůj účet?"
+            confirm: "Opravdu chcete zrušit svůj účet?\nS vaším účtem se smažou i všechny vaše úkoly, projekty i štítky..."

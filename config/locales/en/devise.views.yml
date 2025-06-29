@@ -43,4 +43,4 @@ en:
             title: "Cancel my account"
             prompt: "Unhappy with our service?"
             button: "Cancel my account"
-            confirm: "Are you sure you want to cancel your account?"
+            confirm: "Are you sure you want to cancel your account?\nBy deleting your account, all of your tasks, projects and tags will be deleted as well..."

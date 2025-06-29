@@ -1,0 +1,18 @@
+.d-flex.justify-content-between.align-items-center.mb-3
+  h1.mb-0 = "New project"
+  = link_to "Cancel", projects_path, class: "btn btn-primary"
+
+= simple_form_for @project do |project|
+  = project.input :title, label: blank?, placeholder: "Project title...", error: "Title is required."
+  = project.button :submit, class: "btn btn-primary"
+
+/
+/ <div class="d-flex justify-content-between align-items-center mb-3">
+/   <h1 class="mb-0">New project</h1>
+/   <%= link_to "Cancel", projects_path, class: "btn btn-primary" %>
+/ </div>
+/
+/ <%= simple_form_for @project do |project| %>
+/   <%= project.input :title, label: blank?, placeholder: 'Project title...', error: 'Title is required.' %>
+/   <%= project.button :submit, class: 'btn btn-primary' %>
+/ <% end %>

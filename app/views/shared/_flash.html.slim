@@ -1,0 +1,26 @@
+#flash_messages
+  - if notice
+    .alert.alert-success.alert-dismissible.fade.show(role="alert")
+      = notice
+      button.btn-close(type="button" data-bs-dismiss="alert" aria-label="Close")
+  - if alert
+    .alert.alert-danger.alert-dismissible.fade.show(role="alert")
+      = alert
+      button.btn-close(type="button" data-bs-dismiss="alert" aria-label="Close")
+
+/
+/ <div id="flash_messages">
+/   <% if notice %>
+/   <div class="alert alert-success alert-dismissible fade show" role="alert">
+/     <%= notice %>
+/     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+/   </div>
+/   <% end %>
+/
+/   <% if alert %>
+/     <div class="alert alert-danger alert-dismissible fade show" role="alert">
+/       <%= alert %>
+/       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+/     </div>
+/   <% end %>
+/ </div>

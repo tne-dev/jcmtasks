@@ -338,7 +338,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    shoulda-matchers (5.3.0)
+    shoulda-matchers (6.5.0)
       activesupport (>= 5.2.0)
     simple_form (5.3.1)
       actionpack (>= 5.2)
@@ -444,7 +444,7 @@ DEPENDENCIES
   rubocop-rails-omakase
   rubocop-rspec
   selenium-webdriver
-  shoulda-matchers (~> 5.0)
+  shoulda-matchers (~> 6.5)
   simple_form
   slim
   solid_cable
